@@ -1,29 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { UtilityBar } from "@/components/site/UtilityBar";
+import { MainNavbar } from "@/components/site/MainNavbar";
+import { HeroSection } from "@/components/site/HeroSection";
+import { CategoryGrid } from "@/components/site/CategoryGrid";
+import { DealsGrid } from "@/components/site/DealsGrid";
+import { ServicesSection } from "@/components/site/ServicesSection";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Wellgrove Pharmacy — Healthcare, pharmacy & everyday essentials" },
+      { name: "description", content: "Refill prescriptions, book vaccines, and shop wellness essentials with free same-day pickup at Wellgrove Pharmacy." },
+      { property: "og:title", content: "Wellgrove Pharmacy" },
+      { property: "og:description", content: "Healthcare, pharmacy & everyday essentials all in one place." },
     ],
   }),
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-white text-ink">
+      <UtilityBar />
+      <MainNavbar />
+      <main>
+        <HeroSection />
+        <CategoryGrid />
+        <DealsGrid />
+        <ServicesSection />
+      </main>
+      <Footer />
     </div>
   );
 }
